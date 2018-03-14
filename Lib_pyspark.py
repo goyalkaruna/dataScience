@@ -24,13 +24,13 @@ sc =SparkContext.getOrCreate()
 sqlContext = SQLContext(sc)
 
 ### Global Variables ###
-COS_BUCKET_NAME="ibm.wcp.consumption.customer.journey.v1.bucket"
-COS_FILE_PATH="journey/orc/datestr=2017-03-*"
-COS_ACCESS_KEY="d2c1a23952234d0a8c92e6f6a69bc2a4"
-COS_SECRET_ACCESS="f304ec2719f2b4a2ab82ae975cf498728e9b99bc47254429"
-COS_ENDPOINT="http://s3-api.us-geo.objectstorage.softlayer.net"
-USER_LIST_JSON=[{'user_id':'056be73e-d833-443c-8b06-8ded1f875b8c'}, #Khursheed's id
-                {'user_id':'57b5ba7f-360b-4d4b-afdd-55ab2bed61e1'}  #Lynette's id
+COS_BUCKET_NAME="******"
+COS_FILE_PATH="******"
+COS_ACCESS_KEY="******"
+COS_SECRET_ACCESS="******"
+COS_ENDPOINT="http://******"
+USER_LIST_JSON=[{'user_id':'*****'}, 
+                {'user_id':'*****'} 
                ]
 
 TIME_OUT =1800 # Session time out in seconds while computing activity time
@@ -89,8 +89,6 @@ def getOrcFilePathForDateRange(bucketName, fromDate, toDate=None):
 def readDataFromCOS(bucket_name,file_path): 
     '''
     Read data from the cos data
-    journey/orc/datestr=2017-12-*/part-01031-d18b2697-a8a0-4131-9f7e-312fdff55396.snappy.orc
-    s3a://segmentdata76ns2n32shj2m23892n1hahsaoi1/bluemix_prod/orc/ref/accounts/*
     format s3a://<<bucketName>>/<<path>>
     '''
     sc._jsc.hadoopConfiguration().set("fs.s3a.access.key", COS_ACCESS_KEY)
